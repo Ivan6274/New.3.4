@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilmManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">cart</a> &gt; <a href="index.source.html" class="el_package">ru.netology.manager</a> &gt; <span class="el_source">FilmManager.java</span></div><h1>FilmManager.java</h1><pre class="source lang-java linenums">package ru.netology.manager;
+
+import ru.netology.domain.PurchaseItem;
+
+<span class="fc" id="L5">class FilmManager {</span>
+
+<span class="fc" id="L7">  private PurchaseItem[] items = new PurchaseItem[0];</span>
+
+  public void add(PurchaseItem item) {
+
+<span class="fc" id="L11">    int length = items.length + 1;</span>
+<span class="fc" id="L12">    PurchaseItem[] tmp = new PurchaseItem[length];</span>
+
+<span class="fc bfc" id="L14" title="All 2 branches covered.">    for (int i = 0; i &lt; items.length; i++) {</span>
+<span class="fc" id="L15">      tmp[i] = items[i];</span>
+    }
+
+<span class="fc" id="L18">    int lastIndex = tmp.length - 1;</span>
+<span class="fc" id="L19">    tmp[lastIndex] = item;</span>
+<span class="fc" id="L20">    items = tmp;</span>
+<span class="fc" id="L21">  }</span>
+
+  public PurchaseItem[] getAll() {
+<span class="fc" id="L24">    PurchaseItem[] result = new PurchaseItem[items.length];</span>
+
+<span class="fc bfc" id="L26" title="All 2 branches covered.">    for (int i = 0; i &lt; result.length; i++) {</span>
+<span class="fc" id="L27">      int index = items.length - i - 1;</span>
+<span class="fc" id="L28">      result[i] = items[index];</span>
+    }
+<span class="fc" id="L30">    return result;</span>
+  }
+
+  public PurchaseItem[] showLatestFilm() {
+<span class="fc" id="L34">    int countShowLastMovie = 5;</span>
+
+<span class="fc" id="L36">    PurchaseItem[] item = new PurchaseItem[items.length];</span>
+
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    if (items.length &lt;= countShowLastMovie) {</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">      for (int i = 0; i &lt; items.length; i++) {</span>
+<span class="fc" id="L40">        int index = items.length - i - 1;</span>
+<span class="fc" id="L41">        item[i] = items[index];</span>
+      }
+<span class="fc" id="L43">      return item;</span>
+    } else {
+<span class="fc" id="L45">      PurchaseItem[] item1 = new PurchaseItem[countShowLastMovie];</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">      for (int i = 0; i &lt; countShowLastMovie; i++) {</span>
+<span class="fc" id="L47">        int index = items.length - i - 1;</span>
+<span class="fc" id="L48">        item1[i] = items[index];</span>
+      }
+
+<span class="fc" id="L51">      return item1;</span>
+
+    }
+  }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
